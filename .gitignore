@@ -1,0 +1,7 @@
+# modelsim
+*.wlf
+*.mti
+*.mpf
+**/work/
+transcript
+ModelSim_Project
