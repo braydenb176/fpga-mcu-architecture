@@ -1,0 +1,6 @@
+.program vga_clk_gen
+    set pindirs, 1
+.wrap_target
+    set pins, 1
+    set pins, 0
+.wrap

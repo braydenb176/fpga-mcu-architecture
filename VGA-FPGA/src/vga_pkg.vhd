@@ -5,8 +5,8 @@ use ieee.numeric_std.all;
 --timing values for 640x480 resolution at 60 FPS, using input clock of 25MHz
 package vga_config_640x480 is
 
-    constant H_BIT_CNT        : natural := 10; --1024, to fit 680
-    constant V_BIT_CNT        : natural := 9;  --512,  to fit 480
+    constant H_BIT_CNT        : natural := 11;
+    constant V_BIT_CNT        : natural := 11;
 
     --color bit counts, lose 1 bit of blue to fit color info in 1 byte for memory constraint reasons
     constant RED_BIT_CNT      : natural := 3;
