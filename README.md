@@ -1,4 +1,4 @@
 # fpga-mcu-architecture
-Project to integrate two Max 10 FPGAs with an ATXMega128A1U microcontroller. Aims to implement video capability through VGA, as well as additional sensor functionality. Navigates clock domain crossing.
+Project to integrate a MAX10 FPGA with a RP2040. FPGA handles graphics, while the RP2040 microcontroller provides the required clock frequency for the VGA via PIO and sends control signals to the FPGA display mechanism.
 
-First steps to implement 160x200 frame by using a IS61LV256AL-10TLI SRAM to store pixel data. Store pixel RGB data in a single byte, with red and green being 3 bits and blue being 2 bits.
+Initial setup of VGA to be 640 x 480 at 25 MHz clock speed. Plan to implement tiled design of display to solve issues with memory constraints. 
