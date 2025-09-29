@@ -1,7 +1,14 @@
 # modelsim
-*.wlf
-*.mti
-*.mpf
 **/work/
-transcript
 ModelSim_Project
+
+# rp2040
+**/.vscode/
+**/build/
+**/incremental_db/
+**/output_files
+**/simulation/
+
+# quartus
+**/db/
+**.bak
