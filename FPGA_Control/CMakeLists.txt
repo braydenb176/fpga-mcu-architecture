@@ -34,28 +34,31 @@ project(FPGA_Control C CXX ASM)
 pico_sdk_init()
 
 add_executable(FPGA_Control 
-    FPGA_Control.cpp
-    vga_clk_gen.pio
+    ${CMAKE_CURRENT_LIST_DIR}/src/FPGA_Control.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/lib/lis3dh.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/lib/vga_clk_gen.pio
 )
 
-pico_generate_pio_header(FPGA_Control ${CMAKE_CURRENT_LIST_DIR}/vga_clk_gen.pio)
+pico_generate_pio_header(FPGA_Control ${CMAKE_CURRENT_LIST_DIR}/lib/vga_clk_gen.pio)
 
 pico_set_program_name(FPGA_Control "FPGA_Control")
 pico_set_program_version(FPGA_Control "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
 pico_enable_stdio_uart(FPGA_Control 1)
-pico_enable_stdio_usb(FPGA_Control 0)
+pico_enable_stdio_usb(FPGA_Control 1)
 
 # Add the standard library to the build
 target_link_libraries(FPGA_Control
     pico_stdlib
     hardware_pio
+    hardware_i2c
 )
 
 # Add the standard include files to the build
 target_include_directories(FPGA_Control PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}
+    ${CMAKE_CURRENT_LIST_DIR}/src
+    ${CMAKE_CURRENT_LIST_DIR}/lib
 )
 
 pico_add_extra_outputs(FPGA_Control)
